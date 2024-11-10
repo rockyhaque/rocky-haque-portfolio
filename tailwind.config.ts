@@ -13,6 +13,15 @@ export default {
         foreground: "var(--foreground)",
         customGray: "#1A1A1A",
       },
+      keyframes: {
+        underline: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
+        },
+      },
+      animation: {
+        "underline-animation": "underline 0.3s ease-in-out forwards",
+      },
     },
   },
   plugins: [],

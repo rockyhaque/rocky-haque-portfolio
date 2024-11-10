@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-full transition-colors ${
-                darkMode ? "text-yellow-400" : "text-gray-800 hover:bg-gray-200"
+                darkMode ? "text-purple-400" : "text-gray-800 hover:bg-gray-200"
               }`}
             >
               {darkMode ? (
@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
               {/* Theme Toggle for Mobile */}
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-full transition-colors ${
+                className={`p-2 rounded-full transition-colors ml-2 md:ml-0 ${
                   darkMode ? "text-yellow-400" : "text-gray-800"
                 }`}
               >
