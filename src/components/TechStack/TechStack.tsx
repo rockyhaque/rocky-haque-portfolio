@@ -63,7 +63,7 @@ export default function TechStack() {
 
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Tech Stack</h1>
+          <h1 className={`text-4xl font-bold ${darkMode ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent":"bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"}`}>Tech Stack</h1>
         </div>
         <motion.div
           variants={containerVariants}

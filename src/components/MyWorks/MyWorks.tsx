@@ -24,13 +24,13 @@ const MyWorks = () => {
     >
       {/* Gradient overlays */}
       <div className="absolute top-0 left-0 w-full h-full ">
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-full bg-gradient-to-tl from-orange-900/20 via-transparent to-transparent"></div>
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-tr from-purple-900/20 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-900/20 via-transparent to-transparent"></div>
       </div>
 
       <div className="max-w-screen-xl mx-auto relative space-y-5 md:space-y-10 my-10 md:my-12">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">My works</h1>
+          <h1 className={`text-4xl font-bold ${darkMode ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent":"bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"}`}>My works</h1>
         </div>
         {project.map((item) => (
           <div
