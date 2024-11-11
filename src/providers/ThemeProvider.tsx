@@ -19,27 +19,40 @@ export const useTheme = (): ThemeContextProps => {
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false); // New state to track if the component has mounted
 
-  // Initialize theme from localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
-    }
+    // Ensure the component is only rendered after it has mounted on the client
+    setMounted(true);
   }, []);
 
-  // Save theme to localStorage and apply it
   useEffect(() => {
-    const root = window.document.documentElement;
-    const theme = darkMode ? 'dark' : 'light';
-    root.classList.remove(darkMode ? 'light' : 'dark');
-    root.classList.add(theme);
-    localStorage.setItem('theme', theme);
-  }, [darkMode]);
+    if (mounted) {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setDarkMode(savedTheme === 'dark');
+      }
+    }
+  }, [mounted]);
+
+  useEffect(() => {
+    if (mounted) {
+      const root = window.document.documentElement;
+      const theme = darkMode ? 'dark' : 'light';
+      root.classList.remove(darkMode ? 'light' : 'dark');
+      root.classList.add(theme);
+      localStorage.setItem('theme', theme);
+    }
+  }, [darkMode, mounted]);
 
   const toggleTheme = () => {
     setDarkMode(prevMode => !prevMode);
   };
+
+  // Prevent rendering on the server to avoid hydration mismatches
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleTheme }}>

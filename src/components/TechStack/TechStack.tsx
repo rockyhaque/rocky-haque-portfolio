@@ -123,7 +123,7 @@ function SkillCard({ skill, darkMode }) {
         className={`w-12 h-12 mb-2 object-contain transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
         }`}
-        onLoadingComplete={() => setIsLoading(false)}
+        onLoad={() => setIsLoading(false)}
       />
       <span className="text-sm font-medium text-center">{skill.label}</span>
     </motion.div>
