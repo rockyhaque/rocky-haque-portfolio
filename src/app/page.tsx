@@ -1,5 +1,6 @@
 
 import ContactMe from "@/components/ContactMe/ContactMe";
+// import FAQ from "@/components/FAQ/FAQ";
 import Footer from "@/components/Footer/Footer";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import MyWorks from "@/components/MyWorks/MyWorks";
@@ -18,6 +19,7 @@ export default function Home() {
         <HeroSection />
         <TechStack />
         <MyWorks />
+        {/* <FAQ /> */}
         {/* <TryOut /> */}
         {/* <WorkTogether /> */}
         <ContactMe />

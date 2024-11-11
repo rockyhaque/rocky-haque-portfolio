@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <div
-      className={`relative min-h-screen overflow-hidden ${
+      className={`relative overflow-hidden min-h-screen ${
         darkMode ? "bg-[#0F2027] text-white" : "bg-[#d9fafb] text-black"
       }`}
     >
@@ -51,7 +51,7 @@ const HeroSection = () => {
 
             {/* Info Cards */}
             <motion.div
-              className="flex space-x-8 mb-12"
+              className="flex flex-col md:flex-row mb-12 gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -117,7 +117,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-full h-[800px]">
+            <div className="relative w-full h-[400px] md:h-[800px]">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 rounded-full filter blur-[100px] opacity-30"></div>
               <Image
                 src="/assets/img/hero-banner.png"

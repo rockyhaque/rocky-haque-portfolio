@@ -18,7 +18,7 @@ export const useTheme = (): ThemeContextProps => {
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
   const [mounted, setMounted] = useState(false); // New state to track if the component has mounted
 
   useEffect(() => {

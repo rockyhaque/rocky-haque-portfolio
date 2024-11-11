@@ -119,7 +119,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        <div className="border-t border-gray-800 pt-12">
+        {/* <div className="border-t border-gray-800 pt-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {sections.map((section, index) => (
               <motion.div
@@ -174,14 +174,14 @@ export default function Footer() {
               </form>
             </motion.div>
           </div>
-        </div>
+        </div> */}
         <motion.div
           className="mt-12 pt-8 border-t border-gray-800 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p className="text-gray-400">
+          <p className={`text-gray-400 ${darkMode ? "text-gray-400 ":"text-gray-800"}`}>
             © {new Date().getFullYear()} Rocky Haque All rights reserved.
             Crafted with passion and code.
           </p>

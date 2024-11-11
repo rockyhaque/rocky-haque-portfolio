@@ -1,59 +1,96 @@
 [
-    {
-      "id": "1",
-      "title": "Prime Scope | A Job Hunting Platform",
-      "description": "Prime Scope is an innovative job hunting platform designed to streamline the process of connecting job seekers with potential employers. The platform provides a secure and user-friendly environment for both candidates and employers. One of the standout features of Prime Scope is its secure authentication system, which ensures that all users are verified and trustworthy. The platform also features an efficient application process that makes it easy for candidates to apply for jobs and for employers to manage applications. The backend of Prime Scope is built using Express.js, MongoDB, and JWT, which together ensure that the platform is both secure and highly performant. Whether you are a job seeker looking for your next opportunity or an employer seeking top talent, Prime Scope provides all the tools you need to make the job search process as seamless and effective as possible.",
-      "img": "https://i.ibb.co/mq6kXDr/Prime-Scope-Project-Showcase.png",
-      "features": [
-        "Secure Employer and Candidate Authentication",
-        "Secure and Efficient Application Process",
-        "Backend using Express.js, MongoDB, and JWT for secure and efficient performance."
-      ],
-      "technology": {
-        "react": "https://i.ibb.co/nBMc7zh/react.png",
-        "node": "https://i.ibb.co/DWwthCQ/nodeJS.png",
-        "mongodb": "https://i.ibb.co/0Y756mm/mongoDB.png",
-        "express": "https://i.postimg.cc/3NRPT7YZ/express-Js.png"
-      },
-      "bgColor": "bg-teal-100"
+  {
+    "id": "1",
+    "title": "Prime Scope | A Job Hunting Platform",
+    "description": "Prime Scope is an innovative job hunting platform designed to streamline the process of connecting job seekers with potential employers. The platform provides a secure and user-friendly environment for both candidates and employers. One of the standout features of Prime Scope is its secure authentication system, which ensures that all users are verified and trustworthy. The platform also features an efficient application process that makes it easy for candidates to apply for jobs and for employers to manage applications. The backend of Prime Scope is built using Express.js, MongoDB, and JWT, which together ensure that the platform is both secure and highly performant. Whether you are a job seeker looking for your next opportunity or an employer seeking top talent, Prime Scope provides all the tools you need to make the job search process as seamless and effective as possible.",
+    "img": "https://i.ibb.co/mq6kXDr/Prime-Scope-Project-Showcase.png",
+    "features": [
+      "Secure Employer and Candidate Authentication",
+      "Secure and Efficient Application Process",
+      "Backend using Express.js, MongoDB, and JWT for secure and efficient performance."
+    ],
+    "technology": {
+      "react": "https://i.ibb.co/nBMc7zh/react.png",
+      "node": "https://i.ibb.co/DWwthCQ/nodeJS.png",
+      "mongodb": "https://i.ibb.co/0Y756mm/mongoDB.png",
+      "express": "https://i.postimg.cc/3NRPT7YZ/express-Js.png"
     },
-    {
-      "id": "2",
-      "title": "Recyclo | Used Product Management System With Admin Dashboard",
-      "description": "Recyclo is a comprehensive management system that addresses the needs of businesses dealing in used products. It comes with an admin dashboard that provides real-time updates on revenue, customer activity, and order statuses, giving businesses a powerful tool to monitor and manage their operations. The platform ensures security at every level, with separate login credentials for admins and customers, ensuring that sensitive data is always protected. Data is fetched from secure endpoints to guarantee that all transactions and updates are handled efficiently and safely. Recyclo is built with a focus on scalability and maintainability, meaning that it can grow alongside your business without requiring extensive rework. The design is also responsive, ensuring that the system is fully functional on devices of all sizes, making it an ideal solution for businesses that require flexibility and reliability in their daily operations.",
-      "img": "https://i.ibb.co/qd8fMBm/recyclo.png",
-      "features": [
-        "Instant updates on revenue, customers, and orders",
-        "Secure login for admin and customer access",
-        "Seamless data fetching from secure endpoints",
-        "Easily extendable and maintainable codebase",
-        "Optimized for seamless use across various devices and screen sizes"
-      ],
-      "technology": {
-        "react": "https://i.ibb.co/nBMc7zh/react.png",
-        "node": "https://i.ibb.co/DWwthCQ/nodeJS.png",
-        "mongodb": "https://i.ibb.co/0Y756mm/mongoDB.png",
-        "express": "https://i.postimg.cc/3NRPT7YZ/express-Js.png"
-      },
-      "bgColor": "bg-lime-100"
+    "bgColor": "bg-teal-100"
+  },
+  {
+    "id": "2",
+    "title": "Recyclo | Used Product Management System With Admin Dashboard",
+    "description": "Recyclo is a comprehensive management system that addresses the needs of businesses dealing in used products. It comes with an admin dashboard that provides real-time updates on revenue, customer activity, and order statuses, giving businesses a powerful tool to monitor and manage their operations. The platform ensures security at every level, with separate login credentials for admins and customers, ensuring that sensitive data is always protected. Data is fetched from secure endpoints to guarantee that all transactions and updates are handled efficiently and safely. Recyclo is built with a focus on scalability and maintainability, meaning that it can grow alongside your business without requiring extensive rework. The design is also responsive, ensuring that the system is fully functional on devices of all sizes, making it an ideal solution for businesses that require flexibility and reliability in their daily operations.",
+    "img": "https://i.ibb.co/qd8fMBm/recyclo.png",
+    "features": [
+      "Instant updates on revenue, customers, and orders",
+      "Secure login for admin and customer access",
+      "Seamless data fetching from secure endpoints",
+      "Easily extendable and maintainable codebase",
+      "Optimized for seamless use across various devices and screen sizes"
+    ],
+    "technology": {
+      "react": "https://i.ibb.co/nBMc7zh/react.png",
+      "node": "https://i.ibb.co/DWwthCQ/nodeJS.png",
+      "mongodb": "https://i.ibb.co/0Y756mm/mongoDB.png",
+      "express": "https://i.postimg.cc/3NRPT7YZ/express-Js.png"
     },
-    {
-      "id": "3",
-      "title": "Eco Craft | A E-commerce Platform Dedicated to Craft Enthusiasts",
-      "description": "Eco Craft is an e-commerce platform tailored specifically for craft enthusiasts who are passionate about handmade products. The platform offers a secure login system that allows users to sign in using either their email and password or through social media accounts such as Google and GitHub. This flexibility makes it easier for users to access their accounts from any device. Eco Craft also features private routes that protect sensitive actions, ensuring that only authorized users can perform certain operations. The platform's design is highly accessible, with intuitive navigation that makes it easy for users to find what they are looking for. Eco Craft is optimized for both light and dark modes, allowing users to toggle between themes based on their personal preferences. With secure data fetching from reliable endpoints, Eco Craft ensures a smooth and secure shopping experience for all users.",
-      "img": "https://i.ibb.co/WFq24dQ/Eco-Craft.png",
-      "features": [
-        "Secure login with email/password or social media accounts like Google and GitHub",
-        "Private routes for sensitive actions, accessible design for smooth navigation",
-        "Seamless data fetching from secure endpoints",
-        "User can toggle the theme based on preference for light/dark mode"
-      ],
-      "technology": {
-        "react": "https://i.ibb.co/nBMc7zh/react.png",
-        "tailwind": "https://i.ibb.co/CtF9j25/tailwind.png",
-        "firebase": "https://i.ibb.co/ncSXy5L/firebase.png"
-      },
-      "bgColor": "bg-violet-100"
-    }
-  ]
-  
+    "bgColor": "bg-lime-100"
+  },
+  {
+    "id": "3",
+    "title": "Eco Craft | A E-commerce Platform Dedicated to Craft Enthusiasts",
+    "description": "Eco Craft is an e-commerce platform tailored specifically for craft enthusiasts who are passionate about handmade products. The platform offers a secure login system that allows users to sign in using either their email and password or through social media accounts such as Google and GitHub. This flexibility makes it easier for users to access their accounts from any device. Eco Craft also features private routes that protect sensitive actions, ensuring that only authorized users can perform certain operations. The platform's design is highly accessible, with intuitive navigation that makes it easy for users to find what they are looking for. Eco Craft is optimized for both light and dark modes, allowing users to toggle between themes based on their personal preferences. With secure data fetching from reliable endpoints, Eco Craft ensures a smooth and secure shopping experience for all users.",
+    "img": "https://i.ibb.co/WFq24dQ/Eco-Craft.png",
+    "features": [
+      "Secure login with email/password or social media accounts like Google and GitHub",
+      "Private routes for sensitive actions, accessible design for smooth navigation",
+      "Seamless data fetching from secure endpoints",
+      "User can toggle the theme based on preference for light/dark mode"
+    ],
+    "technology": {
+      "react": "https://i.ibb.co/nBMc7zh/react.png",
+      "tailwind": "https://i.ibb.co/CtF9j25/tailwind.png",
+      "firebase": "https://i.ibb.co/ncSXy5L/firebase.png"
+    },
+    "bgColor": "bg-violet-100"
+  },
+  {
+    "id": "4",
+    "title": "Neighbourly | Bridging Residents and Reliable Service Providers",
+    "description": "This project effectively combines a comprehensive set of functionalities to manage service requests between residents and workers within a community. The system is designed with user-friendly features such as conditional navigation, secure authentication, and seamless booking processes. By integrating a timer system for workers and detailed booking histories for residents, the project ensures transparency and efficiency in managing service interactions. With a strong focus on usability and security, this system is well-suited to streamline service management and enhance the overall experience for both residents and workers.",
+    "img": "https://i.ibb.co.com/yfCCgfR/neighbourly.jpg",
+    "features": [
+      "Admin can manage users by updating or deleting accounts",
+      "Residents can book workers, track service time, and pay via cash",
+      "Workers can manage services, accept bookings, and track work time with a built-in timer"
+    ],
+    "technology": {
+      "react": "https://i.ibb.co/nBMc7zh/react.png",
+      "tailwind": "https://i.ibb.co/CtF9j25/tailwind.png",
+      "firebase": "https://i.ibb.co/ncSXy5L/firebase.png",
+      "mongodb": "https://i.ibb.co/0Y756mm/mongoDB.png",
+      "express": "https://i.postimg.cc/3NRPT7YZ/express-Js.png"
+    },
+    "bgColor": "bg-violet-100"
+  },
+  {
+    "id": "5",
+    "title": "Learnic | Collaborative study platform",
+    "description": "Welcome to Learnic, a collaborative study platform designed to connect students, tutors, and administrators for streamlined study session scheduling, resource sharing, and user management. Learnic aims to enhance collaboration, improve access to study materials, and ensure effective management of educational activities, supporting the dynamic needs of modern education.",
+    "img": "https://i.ibb.co.com/D9qwVKy/learnic.png",
+    "features": [
+      "Easily plan study sessions, share materials, and manage users",
+      "Simple roles for students, tutors, and admins to keep things organized",
+      "Secure login, mobile-friendly design, and an admin dashboard for full control"
+    ],
+    "technology": {
+      "react": "https://i.ibb.co/nBMc7zh/react.png",
+      "tailwind": "https://i.ibb.co/CtF9j25/tailwind.png",
+      "firebase": "https://i.ibb.co/ncSXy5L/firebase.png",
+      "mongodb": "https://i.ibb.co/0Y756mm/mongoDB.png",
+      "express": "https://i.postimg.cc/3NRPT7YZ/express-Js.png"
+    },
+    "bgColor": "bg-violet-100"
+  }
+]
