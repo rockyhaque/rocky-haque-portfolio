@@ -51,7 +51,7 @@ export default function TechStack() {
 
   return (
     <div
-      className={`relative min-h-screen py-12 px-4 sm:px-6 lg:px-8 overflow-hidden ${
+      className={`relative min-h-screen pt-20 pb-12  px-4 sm:px-6 lg:px-8 overflow-hidden ${
         darkMode ? "bg-gray-900 text-white" : "bg-[#d9fafb] text-gray-900"
       }`}
     >

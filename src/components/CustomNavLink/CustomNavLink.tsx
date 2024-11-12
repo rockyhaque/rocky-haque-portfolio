@@ -26,17 +26,17 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
         className={`group relative px-4 py-2 transition duration-300 transform ${
           isActive
             ? darkMode
-              ? "text-purple-400 font-semibold bg-gray-900"
-              : "text-purple-500 font-semibold bg-white"
+              ? "text-cyan-400 font-semibold bg-gray-900"
+              : "text-cyan-500 font-semibold bg-white"
             : darkMode
-            ? "text-gray-300 hover:text-purple-400 bg-transparent"
-            : "text-gray-700 hover:text-purple-500 bg-transparent"
+            ? "text-gray-300 hover:text-cyan-400 bg-transparent"
+            : "text-gray-700 hover:text-cyan-500 bg-transparent"
         }`}
       >
         {children}
         {/* Underline animation with group-hover */}
         <span
-          className={`absolute left-0 bottom-0 h-[2px] w-full bg-purple-500 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100`}
+          className={`absolute left-0 bottom-0 h-[2px] w-full bg-cyan-500 transform scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100`}
         />
       </span>
     </Link>

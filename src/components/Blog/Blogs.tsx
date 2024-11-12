@@ -33,7 +33,7 @@ const Blogs = () => {
 
   return (
     <section
-      className={`py-16 ${
+      className={`pt-20 pb-2 ${
         darkMode
           ? "bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white"
           : "bg-[#d9fafb] text-gray-900"

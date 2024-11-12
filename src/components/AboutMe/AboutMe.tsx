@@ -8,7 +8,7 @@ const AboutMe = () => {
   const { darkMode } = useTheme();
   return (
     <section
-      className={`py-16 ${
+      className={`pt-16 pb-2 ${
         darkMode
           ? "bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white"
           : "bg-[#d9fafb] text-gray-900"

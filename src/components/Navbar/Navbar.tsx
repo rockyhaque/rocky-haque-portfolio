@@ -42,16 +42,18 @@ const Navbar: React.FC = () => {
 
           {/* Nav Links for Large Screens */}
           <div className="hidden lg:flex items-center space-x-4">
-            <CustomNavLink href="/">Home</CustomNavLink>
-            <CustomNavLink href="/about">About</CustomNavLink>
-            <CustomNavLink href="/projects">Projects</CustomNavLink>
-            <CustomNavLink href="/contact">Contact</CustomNavLink>
+            <CustomNavLink href="">Home</CustomNavLink>
+            <CustomNavLink href="#tech-stack">Tech Stack</CustomNavLink>
+            <CustomNavLink href="#my-works">My Works</CustomNavLink>
+            <CustomNavLink href="#about-me">About Me</CustomNavLink>
+            <CustomNavLink href="#blogs">Blogs</CustomNavLink>
+            <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
 
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-full transition-colors ${
-                darkMode ? "text-purple-400" : "text-gray-800 hover:bg-gray-200"
+                darkMode ? "text-cyan-400" : "text-gray-800 hover:bg-cyan-200"
               }`}
             >
               {darkMode ? (
@@ -89,15 +91,17 @@ const Navbar: React.FC = () => {
           >
             <div className="flex flex-col space-y-2 px-4 py-2">
               <CustomNavLink href="/">Home</CustomNavLink>
-              <CustomNavLink href="/about">About</CustomNavLink>
-              <CustomNavLink href="/projects">Projects</CustomNavLink>
-              <CustomNavLink href="/contact">Contact</CustomNavLink>
+              <CustomNavLink href="#tech-stack">Tech Stack</CustomNavLink>
+              <CustomNavLink href="#my-works">My Works</CustomNavLink>
+              <CustomNavLink href="#about-me">About Me</CustomNavLink>
+              <CustomNavLink href="#blogs">Blogs</CustomNavLink>
+              <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
 
               {/* Theme Toggle for Mobile */}
               <button
                 onClick={toggleTheme}
                 className={`p-2 rounded-full transition-colors ml-2 md:ml-0 ${
-                  darkMode ? "text-yellow-400" : "text-gray-800"
+                  darkMode ? "text-cyan-400" : "text-gray-800"
                 }`}
               >
                 {darkMode ? (

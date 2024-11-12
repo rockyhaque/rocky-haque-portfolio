@@ -16,15 +16,25 @@ export default function Home() {
   return (
     <div>
       {/* <ThemeProvider> */}
-        <HeroSection />
+      <HeroSection />
+      <div id="tech-stack">
         <TechStack />
+      </div>
+      <div id="my-works">
         <MyWorks />
+      </div>
+      <div id="about-me">
         <AboutMe />
+      </div>
+      <div id="blogs">
         <Blogs />
-        {/* <FAQ /> */}
-        {/* <TryOut /> */}
-        {/* <WorkTogether /> */}
+      </div>
+      {/* <FAQ /> */}
+      {/* <TryOut /> */}
+      {/* <WorkTogether /> */}
+      <div id="contact-me">
         <ContactMe />
+      </div>
       {/* </ThemeProvider> */}
     </div>
   );
