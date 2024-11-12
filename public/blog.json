@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "title": "🚀 Just implemented image uploads with the ImgBB API!",
+    "image": "https://i.ibb.co.com/KxWNG0t/Green-Modern-Marketing-Company-Promotion-Linkedin-Post-1.png",
+    "summary": "Here's a quick overview: 🟪 Step 1: API Key Setup - Grabbed the API key from ImgBB and stored it in .env as VITE_IMGBB_API_KEY. 🟧 Step 2: Dependencies - Installed Axios for requests using npm install axios. 🟥 Step 3: Function Setup - Created the imageUpload function in src/api/index.js, which takes an image and returns its URL from ImgBB. 🎉 With these steps, uploading images in projects just got way easier! 💡 Excited to keep enhancing this feature.",
+    "posted": "2024-10-10T14:48:00.000Z",
+    "readingTime": 5,
+    "author": {
+      "name": "Rocky Haque",
+      "img": "https://i.ibb.co.com/ZgNWS2t/profile-01.png"
+    }
+  },
+  {
+    "id": "2",
+    "title": "Cookies For Navigating Privacy and Personalization",
+    "image": "https://i.ibb.co.com/qx8SQ0Y/cookies.jpg",
+    "summary": "Hello Developers 👋🏻 Today let's learn about 'cookies' 🍪 What are Cookies? Cookies are small pieces of data stored on a user's device by websites they visit. These pieces of data contain information about the user's interactions and preferences on the site. 🌐 What are cookies on websites? Cookies on websites are essentially text files that store information about the user's browsing activity. When a user visits a website, the site sends a cookie to the user's browser, which is then stored on their device. 🔍 What are cookies used for? Cookies serve various purposes on websites, including remembering user preferences and settings, tracking user behavior for analytics and marketing, enabling features like shopping carts and user authentication, and personalizing content and ads based on user interests. 🔒 What is a third-party cookie? A third-party cookie is set by a domain other than the one the user is visiting, often used for tracking across websites, commonly by advertisers and analytics companies. 🛡️ How do cookies affect user privacy? Cookies can raise privacy concerns as they track user activity across sites. While some are necessary for functionality, others, particularly third-party cookies, are used for targeted ads without consent. Regulations like GDPR and CCPA protect user privacy by requiring websites to inform users and get consent for non-essential cookies. Know more about CCPA vs GDPR. What's the Difference? 🔗 https://lnkd.in/gWATrJ5J.",
+    "posted": "2024-09-12T10:24:00.000Z",
+    "readingTime": 7,
+    "author": {
+      "name": "Rocky Haque",
+      "img": "https://i.ibb.co.com/ZgNWS2t/profile-01.png"
+    }
+  },
+  {
+    "id": "3",
+    "title": "🚀 Unleashing the Power of Full-Stack Harmony! 🔗✨",
+    "image": "https://i.ibb.co.com/7Wdssct/fullstack.jpg",
+    "summary": "🚀 Unleashing the Power of Full-Stack Harmony! 🔗✨ Hey fellow devs! Let's talk about a common pitfall – getting lost in the backend jungle and neglecting the frontend dance! 🌐💻 The Dilemma: Ever find yourself deep into backend brilliance, only to realize the frontend feels like a distant memory? Guilty as charged! 🙋‍♂️ The Wake-Up Call: 🌈 Frontend is the face of your masterpiece! Let's not just code; let's craft user experiences that leave a lasting impression! 🚀✨ Why Frontend Matters: 🎨 User Delight: It's where users experience the magic! Don't miss the chance to dazzle them visually. 🤹‍♂️ Full-Stack Balance: Achieving balance is an art. Blend your backend wizardry with frontend finesse for a seamless symphony. How to Rekindle Your Frontend Flame: 🚀 Mini Projects: Quick, engaging frontend projects to flex those creative muscles! 🌐 Stay Updated: Keep tabs on the latest frontend trends – the tech world is a fast-paced carnival! 🧑‍🎨 Design Exploration: Dive into design principles; after all, an elegant UI is a code's best friend. Let's Embrace the Full-Stack Magic! 💫✨ Remember, a strong backend deserves an equally impressive frontend dance partner. Let's create digital symphonies that captivate users and stand out in the tech orchestra! 🎶🚀",
+    "posted": "2024-08-08T09:00:00.000Z",
+    "readingTime": 6,
+    "author": {
+      "name": "Rocky Haque",
+      "img": "https://i.ibb.co.com/ZgNWS2t/profile-01.png"
+    }
+  },
+  {
+    "id": "4",
+    "title": "✨ Just unlocked the secret to seamless Firebase Hosting! 🔐💫",
+    "image": "https://i.ibb.co.com/gPqvP1D/firebase.jpg",
+    "summary": "🚀✨ Just unlocked the secret to seamless Firebase Hosting! 🔐💫 If you've ever faced issues during Firebase Hosting setup, don't worry, here's a quick fix! First, update your index.html file, then clean up unnecessary files like dist, .firebase, .firebaserc, and firebase.json. Next, install Firebase and Firebase tools with npm, log in to Firebase, and initialize the project using firebase init. Finally, run the build command and deploy with firebase deploy. After waiting a couple of minutes, clear your cache and hard reload the page in Chrome to see the magic! Ready to level up your web dev game? Let's create some Firebase Hosting Magic! 🌟✨",
+    "posted": "2024-07-15T12:30:00.000Z",
+    "readingTime": 4,
+    "author": {
+      "name": "Rocky Haque",
+      "img": "https://i.ibb.co.com/ZgNWS2t/profile-01.png"
+    }
+  }
+]

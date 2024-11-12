@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "@/providers/ThemeProvider";
 import CustomNavLink from "@/components/CustomNavLink/CustomNavLink";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const { darkMode, toggleTheme } = useTheme();
@@ -26,12 +27,18 @@ const Navbar: React.FC = () => {
       <nav className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-0">
-            <Image src="/logo/logo.png" alt="Logo" width={48} height={48} className="w-6 md:w-10" /> 
+          <Link href="/" className="flex items-center gap-0">
+            <Image
+              src="/logo/logo.png"
+              alt="Logo"
+              width={48}
+              height={48}
+              className="w-6 md:w-10"
+            />
             <span className="text-xl font-semibold hidden md:block lg:block">
               ocky&apos;s Portfolio
             </span>
-          </div>
+          </Link>
 
           {/* Nav Links for Large Screens */}
           <div className="hidden lg:flex items-center space-x-4">

@@ -1,33 +1,31 @@
-
 import AboutMe from "@/components/AboutMe/AboutMe";
+import Blogs from "@/components/Blog/Blogs";
 import ContactMe from "@/components/ContactMe/ContactMe";
 // import FAQ from "@/components/FAQ/FAQ";
-import Footer from "@/components/Footer/Footer";
+
 import HeroSection from "@/components/HeroSection/HeroSection";
 import MyWorks from "@/components/MyWorks/MyWorks";
-import Navbar from "@/components/Navbar/Navbar";
+
 import TechStack from "@/components/TechStack/TechStack";
 // import TryOut from "@/components/TryOut/TryOut";
 // import WorkTogether from "@/components/WorkTogether/WorkTogether";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+// import { ThemeProvider } from "@/providers/ThemeProvider";
 // import Image from "next/image";
 
 export default function Home() {
   return (
-    <div >
-      <ThemeProvider>
-        <Navbar />
+    <div>
+      {/* <ThemeProvider> */}
         <HeroSection />
         <TechStack />
         <MyWorks />
         <AboutMe />
+        <Blogs />
         {/* <FAQ /> */}
         {/* <TryOut /> */}
         {/* <WorkTogether /> */}
         <ContactMe />
-        <Footer />
-
-        </ThemeProvider>
+      {/* </ThemeProvider> */}
     </div>
   );
 }
