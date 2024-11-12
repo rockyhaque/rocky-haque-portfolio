@@ -6,15 +6,30 @@ import Link from "next/link";
 import Image from "next/image";
 import ReadMoreBtn from "@/components/Button/ReadMoreBtn";
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  img: string;
+  features: string[];
+  technology: { [key: string]: string };
+  liveLink: string;
+  githubLink: string;
+}
+
 const MyWorks = () => {
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState<Project[]>([]);
   const { darkMode } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     fetch("./data.json")
       .then((res) => res.json())
       .then((data) => setProject(data));
-  }, []);
+  }, [isMounted]);
+
+  if (!isMounted) return <div>Loading...</div>;
 
   return (
     <div
@@ -58,10 +73,9 @@ const MyWorks = () => {
               </p>
 
               <div className="pt-2 flex justify-center md:justify-start">
-                {/* Adding href to Link component */}
+
                 <Link
-                  href={item.link || "#"} // Use optional chaining for link
-                  className="btn btn-sm font-manrope"
+                  href={`/project-details/${item.id}`} 
                 >
                   <ReadMoreBtn text="Details" />
                 </Link>
