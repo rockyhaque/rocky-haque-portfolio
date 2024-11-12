@@ -1,6 +1,6 @@
 import { useTheme } from "@/providers/ThemeProvider";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname} from "next/navigation";
 import { ReactNode } from "react";
 
 interface CustomNavLinkProps {
@@ -15,7 +15,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
   className = "",
   ...props
 }) => {
-  const { pathname } = useRouter();
+  const  pathname  = usePathname();
   const { darkMode } = useTheme(); 
   const isActive = pathname === href;
 
