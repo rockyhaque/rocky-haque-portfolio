@@ -3,7 +3,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const CustomBtn = ({ text }) => {
+interface CustomBtnProps {
+  text: string; // Define text as a string
+}
+
+const CustomBtn: React.FC<CustomBtnProps> = ({ text }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
