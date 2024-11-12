@@ -5,10 +5,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
+interface Skill {
+  label: string;
+  icon: string;
+}
+
 export default function TechStack() {
   const { darkMode } = useTheme();
 
-  const skillData = {
+  const skillData: Record<string, Skill[]> = {
     frontend: [
       { label: "HTML", icon: "https://i.ibb.co/34SRRm2/html.png" },
       { label: "CSS", icon: "https://i.ibb.co/StvgtgR/css.png" },
@@ -95,7 +100,12 @@ export default function TechStack() {
   );
 }
 
-function SkillCard({ skill, darkMode }) {
+interface SkillCardProps {
+  skill: Skill;
+  darkMode: boolean;
+}
+
+function SkillCard({ skill, darkMode }: SkillCardProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
