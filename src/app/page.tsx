@@ -1,4 +1,5 @@
 
+import AboutMe from "@/components/AboutMe/AboutMe";
 import ContactMe from "@/components/ContactMe/ContactMe";
 // import FAQ from "@/components/FAQ/FAQ";
 import Footer from "@/components/Footer/Footer";
@@ -19,6 +20,7 @@ export default function Home() {
         <HeroSection />
         <TechStack />
         <MyWorks />
+        <AboutMe />
         {/* <FAQ /> */}
         {/* <TryOut /> */}
         {/* <WorkTogether /> */}

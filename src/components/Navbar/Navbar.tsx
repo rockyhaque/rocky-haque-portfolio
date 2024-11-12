@@ -5,6 +5,7 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/providers/ThemeProvider";
 import CustomNavLink from "@/components/CustomNavLink/CustomNavLink";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const { darkMode, toggleTheme } = useTheme();
@@ -25,10 +26,10 @@ const Navbar: React.FC = () => {
       <nav className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            {/* <Image src="" alt="Logo" width={48} height={48} className="w-12" />  */}
+          <div className="flex items-center gap-0">
+            <Image src="/logo/logo.png" alt="Logo" width={48} height={48} className="w-6 md:w-10" /> 
             <span className="text-xl font-semibold hidden md:block lg:block">
-              Rocky&apos;s Portfolio
+              ocky&apos;s Portfolio
             </span>
           </div>
 

@@ -15,6 +15,7 @@ import {
   Twitter,
   Mail,
 } from "lucide-react";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
@@ -63,22 +64,47 @@ export default function Footer() {
   const { darkMode } = useTheme();
 
   return (
-    <footer className={`py-16 ${darkMode ? "bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white" : "bg-[#d9fafb] text-gray-900"} relative overflow-hidden`}>
+    <footer
+      className={`py-16 ${
+        darkMode
+          ? "bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white"
+          : "bg-[#d9fafb] text-gray-900"
+      } relative overflow-hidden`}
+    >
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmZmZmMDMiPjwvcmVjdD4KPHBhdGggZD0iTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVoiIHN0cm9rZT0iI2ZmZmZmZjA1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-20"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
           <div className="space-y-6">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Image
+                src="/logo/logo.png"
+                alt="Logo"
+                width={48}
+                height={48}
+                className="w-12"
+              />
+            </div>
             <motion.h2
-              className={`text-4xl font-bold ${darkMode ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent":"bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"}`}
+              className={`text-4xl font-bold ${
+                darkMode
+                  ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent"
+                  : "bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"
+              }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               Crafting Digital Experiences
             </motion.h2>
-            <p className={`text-gray-400  max-w-md ${darkMode ? "text-gray-400 ":"text-gray-800"}`}>
+            <p
+              className={`text-gray-400  max-w-md ${
+                darkMode ? "text-gray-400 " : "text-gray-800"
+              }`}
+            >
               Transforming ideas into seamless, beautiful, and high-performance
-              web applications. Let&apos;s build something extraordinary together.
+              web applications. Let&apos;s build something extraordinary
+              together.
             </p>
             <motion.div
               className="flex space-x-4"
@@ -92,8 +118,9 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-      
-                  className={`transition-colors duration-300 max-w-md ${darkMode ? "text-gray-400 ":"text-gray-800"}`}
+                  className={`transition-colors duration-300 max-w-md ${
+                    darkMode ? "text-gray-400 " : "text-gray-800"
+                  }`}
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -106,15 +133,17 @@ export default function Footer() {
             {icons.map(({ Icon, label }, index) => (
               <motion.div
                 key={label}
-                className={`flex flex-col items-center justify-center p-6 bg-opacity-5 rounded-lg backdrop-blur-sm hover:bg-opacity-10 transition-colors duration-300 ${darkMode ? "text-gray-200 bg-white":"text-gray-800 bg-sky-900"}`}
+                className={`flex flex-col items-center justify-center p-6 bg-opacity-5 rounded-lg backdrop-blur-sm hover:bg-opacity-10 transition-colors duration-300 ${
+                  darkMode
+                    ? "text-gray-200 bg-white"
+                    : "text-gray-800 bg-sky-900"
+                }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Icon size={32} className="text-cyan-500 mb-2" />
-                <span className="text-sm text-center">
-                  {label}
-                </span>
+                <span className="text-sm text-center">{label}</span>
               </motion.div>
             ))}
           </div>
@@ -181,7 +210,11 @@ export default function Footer() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p className={`text-gray-400 ${darkMode ? "text-gray-400 ":"text-gray-800"}`}>
+          <p
+            className={`text-gray-400 ${
+              darkMode ? "text-gray-400 " : "text-gray-800"
+            }`}
+          >
             © {new Date().getFullYear()} Rocky Haque All rights reserved.
             Crafted with passion and code.
           </p>
