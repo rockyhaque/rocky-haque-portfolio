@@ -7,36 +7,35 @@ import {
   Cpu,
   Globe,
   Zap,
-  ChevronRight,
+
   Github,
   Instagram,
   Facebook,
   Linkedin,
-  Twitter,
   Mail,
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 
 export default function Footer() {
-  const [activeSection, setActiveSection] = useState(0);
+  // const [activeSection, setActiveSection] = useState(0);
   const controls = useAnimation();
 
-  const sections = [
-    {
-      title: "Services",
-      items: [
-        "Web Development",
-        "Code Debuging",
-        "API Integration",
-        "Performance Optimization",
-      ],
-    },
-    {
-      title: "About",
-      items: ["My Story", "Skills", "Experience", "Education"],
-    },
-  ];
+  // const sections = [
+  //   {
+  //     title: "Services",
+  //     items: [
+  //       "Web Development",
+  //       "Code Debuging",
+  //       "API Integration",
+  //       "Performance Optimization",
+  //     ],
+  //   },
+  //   {
+  //     title: "About",
+  //     items: ["My Story", "Skills", "Experience", "Education"],
+  //   },
+  // ];
 
   const icons = [
     { Icon: Code, label: "Clean Code" },
@@ -59,7 +58,7 @@ export default function Footer() {
       y: [50, 0],
       transition: { duration: 0.5, delay: i * 0.1 },
     }));
-  }, [controls, activeSection]);
+  }, [controls]);
 
   const { darkMode } = useTheme();
 
@@ -67,7 +66,7 @@ export default function Footer() {
     <footer
       className={`py-16 ${
         darkMode
-          ? "bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white"
+          ? "bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white"
           : "bg-[#d9fafb] text-gray-900"
       } relative overflow-hidden`}
     >
@@ -86,7 +85,7 @@ export default function Footer() {
               />
             </div>
             <motion.h2
-              className={`text-4xl font-bold ${
+              className={`text-xl md:text-4xl font-bold ${
                 darkMode
                   ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent"
                   : "bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"

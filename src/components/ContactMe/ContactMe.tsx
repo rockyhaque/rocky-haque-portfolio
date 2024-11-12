@@ -62,7 +62,7 @@ export default function ContactMe() {
     <section
       className={`py-16 ${
         darkMode
-          ? "bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white"
+          ? "bg-gradient-to-tr from-gray-900 via-black to-gray-900 text-white"
           : "bg-[#d9fafb] text-gray-900"
       } relative overflow-hidden`}
     >
