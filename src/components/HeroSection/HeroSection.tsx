@@ -46,7 +46,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               Aspiring Software Engineer with a passion for web development and
-              a commitment to mastering cutting-edge technologies.
+              a commitment to mastering cutting-edge technologies
             </motion.p>
 
             {/* Info Cards */}
