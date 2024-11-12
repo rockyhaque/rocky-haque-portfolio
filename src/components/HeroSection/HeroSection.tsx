@@ -117,7 +117,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[800]">
+            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[900]">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 rounded-full filter blur-[100px] opacity-30"></div>
               <Image
                 src="/assets/img/hero-banner.png"
