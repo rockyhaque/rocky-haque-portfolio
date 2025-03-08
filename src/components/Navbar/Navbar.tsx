@@ -35,9 +35,9 @@ const Navbar: React.FC = () => {
               height={48}
               className="w-6 md:w-10"
             />
-            <span className="text-xl font-semibold hidden md:block lg:block">
+            {/* <span className="text-xl font-semibold hidden md:block lg:block">
               ocky&apos;s Portfolio
-            </span>
+            </span> */}
           </Link>
 
           {/* Nav Links for Large Screens */}
@@ -48,6 +48,8 @@ const Navbar: React.FC = () => {
             <CustomNavLink href="#about-me">About Me</CustomNavLink>
             <CustomNavLink href="#blogs">Blogs</CustomNavLink>
             <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
+            <CustomNavLink href="register">Register</CustomNavLink>
+            <CustomNavLink href="login">Login</CustomNavLink>
 
             {/* Theme Toggle Button */}
             <button
