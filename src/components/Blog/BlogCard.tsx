@@ -57,6 +57,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     >
       {/* Blog Image */}
       <Image
+      unoptimized
         src={blog.image}
         alt={blog.title}
         width={400}

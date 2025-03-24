@@ -8,9 +8,17 @@ import { IoEyeOffOutline } from "react-icons/io5";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { registerUser } from "@/actions/serverActions";
+
+export interface IRegisterFormData {
+  email: string;
+  name: string;
+  image: string;
+  password?: string;
+}
 
 const RegisterPage = () => {
-  const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
 
   // react hook form
@@ -18,19 +26,25 @@ const RegisterPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-  } = useForm();
+  } = useForm<IRegisterFormData>();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: IRegisterFormData) => {
     console.log(data);
+     registerUser(data);
+
   };
 
-  const handleGoogleLogin = async () => {
-    console.log("handleGoogleLogin");
-  };
-
-  const handleGithubLogin = async () => {
-    console.log("handleGithubLogin");
+  const handleSocialRegister = (provider: string) => {
+    console.log(`Regiisteriing wiiiith ${provider}`);
+    if (provider == "github") {
+      signIn("github", {
+        callbackUrl: "http://localhost:3000",
+      });
+    } else if (provider == "google") {
+      signIn("google", {
+        callbackUrl: "http://localhost:3000",
+      });
+    }
   };
 
   return (
@@ -45,7 +59,7 @@ const RegisterPage = () => {
       />
 
       {/* Login Form Container */}
-      <div className="w-full max-w-md bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white/50 rounded-lg p-8 text-center mt-20 md:mt-16">
+      <div className="w-full max-w-md bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white/50 rounded-lg p-8 text-center ">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-lg md:text-2xl text-white mb-6">Sign Up</h2>
           <p className="text-gray-300">If you new here then registered first</p>
@@ -86,9 +100,9 @@ const RegisterPage = () => {
               type="text"
               placeholder="Photo URL"
               className="input input-bordered w-full bg-transparent border-b-gray-600 text-gray-300"
-              {...register("photoURL", { required: true })}
+              {...register("image", { required: true })}
             />
-            {errors.photoURL && (
+            {errors.image && (
               <span className="text-rose-500 text-sm md:text-md font-light md:font-semibold mt-1">
                 *Photo URL is required
               </span>
@@ -165,14 +179,24 @@ const RegisterPage = () => {
         {/* Social Sign-in */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           <button
-            onClick={handleGoogleLogin}
+            // onClick={() =>
+            //   signIn("google", {
+            //     callbackUrl: "http://localhost:3000",
+            //   })
+            // }
+            onClick={() => handleSocialRegister("google")}
             className="flex justify-center items-center gap-2 border border-gray-500 rounded-md px-2 py-1 hover:bg-cyan-200/10"
           >
             <FcGoogle size={20} />
             <p className="text-white">Google</p>
           </button>
           <button
-            onClick={handleGithubLogin}
+            // onClick={() =>
+            //   signIn("github", {
+            //     callbackUrl: "http://localhost:3000",
+            //   })
+            // }
+            onClick={() => handleSocialRegister("github")}
             className="flex justify-center items-center gap-2 border border-gray-500 rounded-md px-2 py-1 hover:bg-cyan-200/10"
           >
             <FaGithub size={20} />

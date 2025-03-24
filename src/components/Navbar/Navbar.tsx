@@ -7,8 +7,17 @@ import { useTheme } from "@/providers/ThemeProvider";
 import CustomNavLink from "@/components/CustomNavLink/CustomNavLink";
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
-const Navbar: React.FC = () => {
+type UserProps = {
+  user?: {
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
+  };
+};
+
+const Navbar = ({ session }: { session: UserProps | null }) => {
   const { darkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -42,7 +51,7 @@ const Navbar: React.FC = () => {
 
           {/* Nav Links for Large Screens */}
           <div className="hidden lg:flex items-center space-x-4">
-            <CustomNavLink href="">Home</CustomNavLink>
+            <CustomNavLink href="/">Home</CustomNavLink>
             <CustomNavLink href="#tech-stack">Tech Stack</CustomNavLink>
             <CustomNavLink href="#my-works">My Works</CustomNavLink>
             <CustomNavLink href="#about-me">About Me</CustomNavLink>
@@ -50,6 +59,13 @@ const Navbar: React.FC = () => {
             <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
             <CustomNavLink href="register">Register</CustomNavLink>
             <CustomNavLink href="login">Login</CustomNavLink>
+            <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
+
+            {session?.user ? (
+              <button onClick={()=>signOut()} className="btn btn-sm btn-error">Logout</button>
+            ) : (
+              <CustomNavLink href="login">Login</CustomNavLink>
+            )}
 
             {/* Theme Toggle Button */}
             <button
@@ -98,6 +114,13 @@ const Navbar: React.FC = () => {
               <CustomNavLink href="#about-me">About Me</CustomNavLink>
               <CustomNavLink href="#blogs">Blogs</CustomNavLink>
               <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
+              <CustomNavLink href="register">Register</CustomNavLink>
+              <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
+              {session?.user ? (
+                <button onClick={()=>signOut()} className="btn btn-sm btn-error">Logout</button>
+              ) : (
+                <CustomNavLink href="login">Login</CustomNavLink>
+              )}
 
               {/* Theme Toggle for Mobile */}
               <button

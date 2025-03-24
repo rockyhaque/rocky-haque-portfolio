@@ -86,6 +86,7 @@ const MyWorks = () => {
 
             <div className="w-full md:w-1/3 flex justify-center">
               <Image
+              unoptimized
                 src={item.img}
                 width={400}
                 height={400}

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
@@ -10,29 +9,46 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 
+
+export interface ILoginFormData {
+  email: string;
+  password: string;
+}
+
 const LoginPage = () => {
-  const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
 
   // react hook form
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+    formState: { errors }
+  } = useForm<ILoginFormData>();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: ILoginFormData) => {
     console.log(data);
+    signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: true,
+      callbackUrl: "http://localhost:3000"
+    })
   };
 
-  const handleGoogleLogin = async () => {
-    console.log("handleGoogleLogin");
-  };
+  const handleSocialLogin = (provider: string) => {
+    console.log(`Logiing wiiiith ${provider}`)
+    if(provider == 'github'){
+      signIn('github' , {
+        callbackUrl: "http://localhost:3000"
+      })
+    } else if(provider == 'google'){
+      signIn('google' , {
+        callbackUrl: "http://localhost:3000"
+      })
+    }
+    
+  }
 
-  const handleGithubLogin = async () => {
-    console.log("handleGithubLogin");
-  };
 
   return (
     <div className="relative flex items-center justify-center min-h-screen w-full px-4">
@@ -46,7 +62,7 @@ const LoginPage = () => {
       />
 
       {/* Login Form Container */}
-      <div className="w-full max-w-md bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white/50 rounded-lg p-8 text-center mt-20 md:mt-16">
+      <div className="w-full max-w-md bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white/50 rounded-lg p-8 text-center">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-lg md:text-2xl text-white mb-6">Sign In</h2>
           <p className="text-gray-300">
@@ -138,16 +154,20 @@ const LoginPage = () => {
         {/* Social Sign-in */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           <button
-            onClick={handleGoogleLogin}
+            // onClick={()=>signIn("google", {
+            //   callbackUrl: "http://localhost:3000"
+            // })}
+            onClick={() => handleSocialLogin("google")}
             className="flex justify-center items-center gap-2 border border-gray-500 rounded-md px-2 py-1 hover:bg-cyan-200/10"
           >
             <FcGoogle size={20} />
             <p className="text-white">Google</p>
           </button>
           <button
-            onClick={()=>signIn("github", {
-              callbackUrl: "http://localhost:3000"
-            })}
+            // onClick={()=>signIn("github", {
+            //   callbackUrl: "http://localhost:3000"
+            // })}
+            onClick={() => handleSocialLogin("github")}
             className="flex justify-center items-center gap-2 border border-gray-500 rounded-md px-2 py-1 hover:bg-cyan-200/10"
           >
             <FaGithub size={20} />

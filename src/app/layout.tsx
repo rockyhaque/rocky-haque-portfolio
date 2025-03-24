@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import { Inter } from "next/font/google";
 
 // Configure the Inter font with optional settings
@@ -28,9 +26,7 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased`}
       >
         <ThemeProvider>
-          <Navbar />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

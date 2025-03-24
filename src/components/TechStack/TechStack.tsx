@@ -126,6 +126,7 @@ function SkillCard({ skill, darkMode }: SkillCardProps) {
         <div className="w-12 h-12 mb-2 bg-gray-300 animate-pulse rounded-xl"></div>
       )}
       <Image
+      unoptimized
         src={skill.icon}
         alt={skill.label}
         width={48}
