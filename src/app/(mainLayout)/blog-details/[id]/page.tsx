@@ -68,6 +68,7 @@ const BlogDetails = () => {
             {/* Blog Image */}
             <div className=" ">
               <Image
+                unoptimized
                 src={blog.image}
                 alt={blog.title}
                 width={400}
@@ -81,6 +82,7 @@ const BlogDetails = () => {
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                   <Image
+                    unoptimized
                     src={blog.author.img}
                     alt={blog.author.name}
                     width={48}
@@ -89,7 +91,7 @@ const BlogDetails = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mr-3">
+                  <h3 className="text-lg font-semibold mr-7">
                     {blog.author.name}
                   </h3>
                   <p className="text-sm text-gray-500">

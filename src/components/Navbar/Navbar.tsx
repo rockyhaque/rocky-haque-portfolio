@@ -57,8 +57,6 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
             <CustomNavLink href="#about-me">About Me</CustomNavLink>
             <CustomNavLink href="#blogs">Blogs</CustomNavLink>
             <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
-            <CustomNavLink href="register">Register</CustomNavLink>
-            <CustomNavLink href="login">Login</CustomNavLink>
             <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
 
             {session?.user ? (
@@ -114,7 +112,6 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
               <CustomNavLink href="#about-me">About Me</CustomNavLink>
               <CustomNavLink href="#blogs">Blogs</CustomNavLink>
               <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
-              <CustomNavLink href="register">Register</CustomNavLink>
               <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
               {session?.user ? (
                 <button onClick={()=>signOut()} className="btn btn-sm btn-error">Logout</button>

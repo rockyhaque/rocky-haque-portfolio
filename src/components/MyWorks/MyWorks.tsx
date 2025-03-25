@@ -45,7 +45,15 @@ const MyWorks = () => {
 
       <div className="max-w-screen-xl mx-auto relative space-y-5 md:space-y-10 my-10 md:my-12">
         <div className="text-center mb-12">
-          <h1 className={`text-4xl font-bold ${darkMode ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent":"bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"}`}>My works</h1>
+          <h1
+            className={`text-4xl font-bold ${
+              darkMode
+                ? "bg-gradient-to-r from-slate-300 to-zinc-500 bg-clip-text text-transparent"
+                : "bg-gradient-to-r from-cyan-500 to-cyan-950 bg-clip-text text-transparent"
+            }`}
+          >
+            My works
+          </h1>
         </div>
         {project.map((item) => (
           <div
@@ -64,7 +72,14 @@ const MyWorks = () => {
 
               <div className="flex justify-center md:justify-start items-center py-3 gap-2">
                 {Object.entries(item.technology).map(([key, src]) => (
-                  <Image key={key} src={src} alt={key} width={40} height={40} />
+                  <Image
+                    unoptimized
+                    key={key}
+                    src={src}
+                    alt={key}
+                    width={40}
+                    height={40}
+                  />
                 ))}
               </div>
 
@@ -73,10 +88,7 @@ const MyWorks = () => {
               </p>
 
               <div className="pt-2 flex justify-center md:justify-start">
-
-                <Link
-                  href={`/project-details/${item.id}`} 
-                >
+                <Link href={`/project-details/${item.id}`}>
                   <ReadMoreBtn text="Details" />
                 </Link>
               </div>
@@ -86,7 +98,7 @@ const MyWorks = () => {
 
             <div className="w-full md:w-1/3 flex justify-center">
               <Image
-              unoptimized
+                unoptimized
                 src={item.img}
                 width={400}
                 height={400}

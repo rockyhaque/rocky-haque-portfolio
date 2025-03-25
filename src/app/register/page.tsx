@@ -38,11 +38,11 @@ const RegisterPage = () => {
     console.log(`Regiisteriing wiiiith ${provider}`);
     if (provider == "github") {
       signIn("github", {
-        callbackUrl: "http://localhost:3000",
+        callbackUrl: "https://rocky-haque.vercel.app",
       });
     } else if (provider == "google") {
       signIn("google", {
-        callbackUrl: "http://localhost:3000",
+        callbackUrl: "https://rocky-haque.vercel.app",
       });
     }
   };

@@ -54,6 +54,7 @@ const ProjectDetails = () => {
       <div className="max-w-screen-xl mx-auto relative space-y-5 md:space-y-10 my-10 md:my-12">
         <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
         <Image
+        unoptimized
           src={project.img}
           alt={project.title}
           width={200}
@@ -74,7 +75,7 @@ const ProjectDetails = () => {
         <h2 className="text-xl font-semibold mb-2">Technologies Used:</h2>
         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start items-center md:items-start mb-4">
           {Object.entries(project.technology).map(([tech, logo]) => (
-            <Image key={tech} src={logo} alt={tech} width={50} height={50} />
+            <Image unoptimized key={tech} src={logo} alt={tech} width={50} height={50} />
           ))}
         </div>
 
