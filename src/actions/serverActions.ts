@@ -1,5 +1,6 @@
 "user server";
 
+import { BlogPostData } from "@/app/(dashboardLayout)/dashboard/blog/create-blog/page";
 import { IRegisterFormData } from "@/app/register/page";
 
 export const registerUser = async (data: IRegisterFormData) => {
@@ -45,6 +46,76 @@ export const fetchContacts = async (): Promise<{
 }> => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/contact/all-contacts`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    
+    const data = await res.json();
+    return  data;
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
+    return { 
+      error: error instanceof Error ? error.message : 'Failed to fetch contacts' 
+    };
+  }
+};
+
+// * Blogs APIs
+
+export const createBlogPost = async (data: BlogPostData) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/blog/create-blog`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) {
+      // Get more detailed error information
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(
+        `HTTP error! status: ${res.status}, message: ${errorData.message || 'No additional error info'}`
+      );
+    }
+
+    const result = await res.json();
+    // console.log("Success:", result);
+    return result;
+  } catch (error) {
+    console.error("Error creating blog post:", error);
+    throw error instanceof Error ? error : new Error("Failed to create blog post");
+  }
+};
+
+
+interface Author {
+  name: string
+  img: string
+  email: string
+}
+
+export interface IBlog {
+  _id: string;
+  title: string
+  image: string
+  content: string
+  author: Author
+  isPublished: boolean
+  readingTime: number
+}
+
+export const fetchBlogs = async (): Promise<{ 
+  data?: IBlog[]; 
+  error?: string 
+}> => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/blog/all-blogs`, {
       cache: 'no-store',
       headers: {
         'Content-Type': 'application/json'

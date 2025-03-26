@@ -3,7 +3,7 @@ import React from 'react';
 const CreateProjectPage = () => {
     return (
         <div>
-            <h2>Thiiiiiis is form of CreateProjectPage</h2>
+            <h2>This is the form of Create Project Page</h2>
         </div>
     );
 };

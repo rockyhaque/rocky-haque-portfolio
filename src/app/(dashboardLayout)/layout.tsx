@@ -6,9 +6,10 @@ import { useTheme } from "@/providers/ThemeProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiHome, FiMenu } from "react-icons/fi";
-import { RiApps2AddLine, RiMessage2Line } from "react-icons/ri";
+import { RiMessage2Line } from "react-icons/ri";
 import { HiOutlineDocumentAdd } from "react-icons/hi";
 import LogoutButton from "@/components/Button/LogoutButton";
+import { GoTasklist } from "react-icons/go";
 
 interface LayoutProps {
   children: ReactNode;
@@ -23,10 +24,15 @@ const NAV_ITEMS = [
     href: "/dashboard/blog/create-blog",
   },
   {
-    icon: <RiApps2AddLine />,
-    label: "Create Project",
-    href: "/dashboard/project/create-project",
+    icon: <GoTasklist />,
+    label: "All Blogs",
+    href: "/dashboard/blog/all-blogs",
   },
+  // {
+  //   icon: <RiApps2AddLine />,
+  //   label: "Create Project",
+  //   href: "/dashboard/project/create-project",
+  // },
   
 ];
 
@@ -52,7 +58,7 @@ export default function DashboardLayout({ children }: LayoutProps) {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="mb-6 focus:outline-none"
+          className="mb-6 ml-2 focus:outline-none"
         >
           <FiMenu size={24} />
         </button>

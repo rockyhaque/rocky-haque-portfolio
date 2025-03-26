@@ -35,7 +35,7 @@ const ProjectDetails = () => {
     }
   }, [id]);
 
-  console.log(project);
+  // console.log(project);
 
   if (!project) return <div>Loading...</div>;
 

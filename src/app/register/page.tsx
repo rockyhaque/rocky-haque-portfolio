@@ -10,6 +10,9 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { registerUser } from "@/actions/serverActions";
+import toast, { Toaster } from "react-hot-toast";
+import { useTheme } from "@/providers/ThemeProvider";
+import { useRouter } from "next/navigation";
 
 export interface IRegisterFormData {
   email: string;
@@ -20,6 +23,8 @@ export interface IRegisterFormData {
 
 const RegisterPage = () => {
   const [showPass, setShowPass] = useState(false);
+  const { darkMode } = useTheme();
+  const router = useRouter();
 
   // react hook form
   const {
@@ -29,20 +34,32 @@ const RegisterPage = () => {
   } = useForm<IRegisterFormData>();
 
   const onSubmit = async (data: IRegisterFormData) => {
-    console.log(data);
-     registerUser(data);
-
+    try {
+      const result = await registerUser(data);
+      if (result.status) {
+        toast.success("Registration successful! Redirecting to login...");
+        // reset();
+        setTimeout(() => {
+          router.push("/login");
+        }, 2000);
+      } else {
+        toast.error(result.message || "Registration failed. Try again.");
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   const handleSocialRegister = (provider: string) => {
-    console.log(`Regiisteriing wiiiith ${provider}`);
+    // console.log(`Regiisteriing wiiiith ${provider}`);
     if (provider == "github") {
       signIn("github", {
-        callbackUrl: "https://rocky-haque.vercel.app",
+        callbackUrl: `${process.env.NEXT_PUBLIC_CLIENT_URL}`,
       });
     } else if (provider == "google") {
       signIn("google", {
-        callbackUrl: "https://rocky-haque.vercel.app",
+        callbackUrl: `${process.env.NEXT_PUBLIC_CLIENT_URL}`,
       });
     }
   };
@@ -56,6 +73,34 @@ const RegisterPage = () => {
         layout="fill"
         objectFit="cover"
         className="-z-10"
+      />
+
+      {/* Add the Toaster component here */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          className: "",
+          duration: 4000,
+          style: {
+            background: darkMode ? "#1e293b" : "#e2e8f0",
+            color: darkMode ? "#ffffff" : "#1e293b",
+            border: darkMode ? "1px solid #334155" : "1px solid #cbd5e1",
+            boxShadow:
+              "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+          },
+          success: {
+            iconTheme: {
+              primary: "#0ea5e9",
+              secondary: darkMode ? "#1e293b" : "#e2e8f0",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: darkMode ? "#1e293b" : "#e2e8f0",
+            },
+          },
+        }}
       />
 
       {/* Login Form Container */}

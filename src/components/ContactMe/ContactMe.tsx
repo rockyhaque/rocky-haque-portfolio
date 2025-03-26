@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, Mail, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
-import CustomBtn from "@/components/Button/CustomBtn";
 import { useTheme } from "@/providers/ThemeProvider";
 import MiniTitle from "@/components/ReusableText/MiniTitle";
 import { toast, Toaster } from "react-hot-toast";
 import { submitContactForm } from "@/actions/serverActions";
+import AnimatedButton from "../Button/AnimatedButton";
 
 export default function ContactMe() {
   const [formState, setFormState] = useState({
@@ -30,8 +30,8 @@ export default function ContactMe() {
     setIsSubmitting(true);
 
     try {
-      const response = await submitContactForm(formState);
-      console.log("Form submitted successfully:", response);
+      await submitContactForm(formState);
+      // console.log("Form submitted successfully:", response);
       toast.success("Message sent successfully!");
       setFormState({ name: "", email: "", message: "" });
     } catch (error) {
@@ -210,10 +210,7 @@ export default function ContactMe() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <CustomBtn
-                  text={isSubmitting ? "Sending..." : "Send Message"}
-                  disabled={isSubmitting}
-                />
+                <AnimatedButton isSubmitting={isSubmitting} />
               </motion.div>
             </form>
           </motion.div>

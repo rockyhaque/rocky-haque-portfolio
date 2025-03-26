@@ -14,19 +14,42 @@ type UserProps = {
     name?: string | null | undefined;
     email?: string | null | undefined;
     image?: string | null | undefined;
+    role?: string | null | undefined;
   };
 };
 
 const Navbar = ({ session }: { session: UserProps | null }) => {
   const { darkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      if (session?.user?.email) {
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/my-profile/${session.user.email}`
+          );
+          const data = await response.json();
+          // console.log("role dataa", data.data.role)
+          if (response.ok && data.data.role) {
+            setRole(data.data.role);
+          }
+        } catch (error) {
+          console.error("Error fetching user role:", error);
+        }
+      }
+    };
+
+    fetchUserRole();
+  }, [session?.user?.email]);
 
   useEffect(() => {}, [isMenuOpen]);
 
   const handleMenuToggle = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
-
+  // console.log("role", role)
   return (
     <div
       className={`fixed backdrop-blur-md bg-opacity-30 w-full z-50 ${
@@ -57,10 +80,17 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
             <CustomNavLink href="#about-me">About Me</CustomNavLink>
             <CustomNavLink href="#blogs">Blogs</CustomNavLink>
             <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
-            <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
+            {session?.user && role === "admin" && (
+              <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
+            )}
 
             {session?.user ? (
-              <button onClick={()=>signOut()} className="btn btn-sm btn-error">Logout</button>
+              <button
+                onClick={() => signOut()}
+                className="btn btn-sm btn-error"
+              >
+                Logout
+              </button>
             ) : (
               <CustomNavLink href="login">Login</CustomNavLink>
             )}
@@ -112,9 +142,17 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
               <CustomNavLink href="#about-me">About Me</CustomNavLink>
               <CustomNavLink href="#blogs">Blogs</CustomNavLink>
               <CustomNavLink href="#contact-me">Contact Me</CustomNavLink>
-              <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
+              {session?.user && role === "admin" && (
+                <CustomNavLink href="dashboard">Dashboard</CustomNavLink>
+              )}
+
               {session?.user ? (
-                <button onClick={()=>signOut()} className="btn btn-sm btn-error">Logout</button>
+                <button
+                  onClick={() => signOut()}
+                  className="btn btn-sm btn-error"
+                >
+                  Logout
+                </button>
               ) : (
                 <CustomNavLink href="login">Login</CustomNavLink>
               )}

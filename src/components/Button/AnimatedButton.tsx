@@ -2,13 +2,13 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
-import { useTheme } from "@/providers/ThemeProvider"; // Import the theme context
+import { useTheme } from "@/providers/ThemeProvider"; // Import theme context
 
-interface AnimatedButtonProps {
-  text: string;
+interface AnimatedSubmitButtonProps {
+  isSubmitting: boolean;
 }
 
-const ReadMoreBtn: React.FC<AnimatedButtonProps> = ({ text }) => {
+const AnimatedButton: React.FC<AnimatedSubmitButtonProps> = ({ isSubmitting }) => {
   const { darkMode } = useTheme(); // Get darkMode from theme context
   const [isHovered, setIsHovered] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -51,25 +51,16 @@ const ReadMoreBtn: React.FC<AnimatedButtonProps> = ({ text }) => {
 
   const handleHoverStart = () => {
     setIsHovered(true);
-    controls.start({
-      scale: 1.05,
-      transition: { duration: 0.3 },
-    });
+    controls.start({ scale: 1.05, transition: { duration: 0.3 } });
   };
 
   const handleHoverEnd = () => {
     setIsHovered(false);
-    controls.start({
-      scale: 1,
-      transition: { duration: 0.3 },
-    });
+    controls.start({ scale: 1, transition: { duration: 0.3 } });
   };
 
   const liquidVariants = {
-    rest: {
-      pathLength: 0,
-      pathOffset: 0,
-    },
+    rest: { pathLength: 0, pathOffset: 0 },
     hover: {
       pathLength: 0.5,
       pathOffset: 0.5,
@@ -80,19 +71,19 @@ const ReadMoreBtn: React.FC<AnimatedButtonProps> = ({ text }) => {
     },
   };
 
-  // Set background gradient based on dark or light mode
   const backgroundClass = darkMode
-    ? "bg-gradient-to-r from-gray-200 via-gray-300 to-gray-300" // Dark mode background
-    : "bg-gradient-to-r from-sky-100 via-sky-100 to-sky-300"; // Light mode background
+    ? "bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600"
+    : "bg-gradient-to-r from-blue-300 via-blue-300 to-cyan-400";
 
   return (
     <motion.button
       ref={buttonRef}
-      className={`group relative h-10 w-28 overflow-hidden rounded-xl ${backgroundClass} text-gray-800 shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900`}
-      style={{
-        rotateX: rotateX,
-        rotateY: rotateY,
-      }}
+      type="submit"
+      disabled={isSubmitting}
+      className={`group relative h-12 w-36 overflow-hidden rounded-xl ${backgroundClass} text-white font-semibold 
+                 shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 
+                 focus:ring-offset-gray-900 ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+      style={{ rotateX, rotateY }}
       onHoverStart={handleHoverStart}
       onHoverEnd={handleHoverEnd}
       animate={controls}
@@ -103,11 +94,7 @@ const ReadMoreBtn: React.FC<AnimatedButtonProps> = ({ text }) => {
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
-      <motion.svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 200 60"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <motion.svg className="absolute inset-0 h-full w-full" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
         <motion.path
           d="M 0 30 Q 50 0 100 30 Q 150 60 200 30"
           fill="none"
@@ -118,7 +105,7 @@ const ReadMoreBtn: React.FC<AnimatedButtonProps> = ({ text }) => {
           animate={isHovered ? "hover" : "rest"}
         />
         <defs>
-          <linearGradient id="liquid-gradient" x1="0" y1="0" x2="100%" y2="0">
+          <linearGradient id="liquid-gradient" x1="0" y1="0" x2="100%">
             <stop offset="0%" stopColor="#60a5fa" />
             <stop offset="50%" stopColor="#34d399" />
             <stop offset="100%" stopColor="#60a5fa" />
@@ -126,10 +113,10 @@ const ReadMoreBtn: React.FC<AnimatedButtonProps> = ({ text }) => {
         </defs>
       </motion.svg>
       <span className="relative z-10 text-lg font-bold transition-colors duration-300 group-hover:text-gray-900">
-        {text} {/* Button text passed as prop */}
+        {isSubmitting ? "Sending..." : "Send Message"}
       </span>
     </motion.button>
   );
 };
 
-export default ReadMoreBtn;
+export default AnimatedButton;

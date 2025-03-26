@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 
-
 export interface ILoginFormData {
   email: string;
   password: string;
@@ -22,33 +21,31 @@ const LoginPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<ILoginFormData>();
 
   const onSubmit = async (data: ILoginFormData) => {
-    console.log(data);
+    // console.log(data);
     signIn("credentials", {
       email: data.email,
       password: data.password,
       redirect: true,
-      callbackUrl: "https://rocky-haque.vercel.app"
-    })
+      callbackUrl: `${process.env.NEXT_PUBLIC_CLIENT_URL}`,
+    });
   };
 
   const handleSocialLogin = (provider: string) => {
-    console.log(`Logiing wiiiith ${provider}`)
-    if(provider == 'github'){
-      signIn('github' , {
-        callbackUrl: "https://rocky-haque.vercel.app"
-      })
-    } else if(provider == 'google'){
-      signIn('google' , {
-        callbackUrl: "https://rocky-haque.vercel.app"
-      })
+    // console.log(`Logiing wiiiith ${provider}`);
+    if (provider == "github") {
+      signIn("github", {
+        callbackUrl: `${process.env.NEXT_PUBLIC_CLIENT_URL}`,
+      });
+    } else if (provider == "google") {
+      signIn("google", {
+        callbackUrl: `${process.env.NEXT_PUBLIC_CLIENT_URL}`,
+      });
     }
-    
-  }
-
+  };
 
   return (
     <div className="relative flex items-center justify-center min-h-screen w-full px-4">

@@ -23,7 +23,13 @@ const fetchUserData = async (email: string) => {
       cache: 'no-store'
     });
     const allUsers = await res.json();
-    return allUsers.find((user: UserData) => user.email === email);
+    // Ensure 'data' is an array before calling find
+    if (Array.isArray(allUsers.data)) {
+      return allUsers.data.find((user: UserData) => user.email === email);
+    } else {
+      console.error("Error: Expected 'data' to be an array, but got", allUsers.data);
+      return null;
+    }
   } catch (error) {
     console.error("Error fetching user data:", error);
     return null;
@@ -56,7 +62,7 @@ const DashboardPage = async () => {
     : 'Unknown';
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center p-4">
       {/* Background Blur Gradient */}
       <div className="fixed inset-0 overflow-hidden -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-black to-gray-900 opacity-100"></div>
@@ -69,7 +75,7 @@ const DashboardPage = async () => {
           {/* Profile Card */}
           <div className="relative z-10 bg-black/40 backdrop-blur-2xl rounded-2xl p-8 shadow-xl border border-gray-700/50 overflow-hidden">
             {/* Glow Effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-rose-500/30 rounded-2xl blur-xl opacity-70 animate-pulse"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600/30 to-slate-500/30 rounded-2xl blur-xl opacity-70 "></div>
             
             {/* User Image */}
             <div className="flex justify-center mb-6">
@@ -101,13 +107,13 @@ const DashboardPage = async () => {
                 </div>
                 
                 <div className="flex items-center justify-between py-2 border-b border-gray-700/30">
-                  <span className="text-gray-400">Status</span>
+                  <span className="text-gray-400">Role</span>
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                    userDetails?.userStatus === 'active' 
+                    userDetails?.role === 'admin' 
                       ? 'bg-green-500/20 text-green-400' 
                       : 'bg-red-500/20 text-red-400'
                   }`}>
-                    {userDetails?.userStatus || 'active'}
+                    {userDetails?.role || 'Not Defined'}
                   </span>
                 </div>
                 
@@ -125,11 +131,11 @@ const DashboardPage = async () => {
                 </div>
                 <div className="bg-gray-800/40 rounded-xl p-3 text-center backdrop-blur-sm border border-gray-700/30 hover:bg-gray-700/40 transition-colors">
                   <div className="text-2xl font-bold text-white">24</div>
-                  <div className="text-xs text-gray-400">Posts</div>
+                  <div className="text-xs text-gray-400">Blogs</div>
                 </div>
                 <div className="bg-gray-800/40 rounded-xl p-3 text-center backdrop-blur-sm border border-gray-700/30 hover:bg-gray-700/40 transition-colors">
                   <div className="text-2xl font-bold text-white">1.2K</div>
-                  <div className="text-xs text-gray-400">Followers</div>
+                  <div className="text-xs text-gray-400">Likes</div>
                 </div>
               </div>
             </div>
